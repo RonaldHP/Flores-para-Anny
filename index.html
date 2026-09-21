@@ -39,7 +39,7 @@
             cursor: pointer;
         }
 
-        /* Corazón estilizado con CSS puro (nunca fallará) */
+        /* Corazón estilizado con CSS puro */
         .main-heart {
             position: relative;
             width: 60px;
@@ -286,15 +286,15 @@
 </head>
 <body>
 
-    <!-- Pantalla inicial con diseño puro, sin emojis ni tildes -->
-    <div class="welcome-screen" id="welcomeScreen" onclick="startSuprise()">
+    <!-- Pantalla inicial activa al dar clic -->
+    <div class="welcome-screen" id="welcomeScreen" onclick="arrancarSorpresa()">
         <div class="main-heart"></div>
         <button class="click-text">PRESIONA AQUI</button>
         <p class="sub-text">PARA ANNY</p>
     </div>
 
-    <!-- Etiqueta de audio con música de fondo romántica -->
-    <audio id="bgMusic" loop>
+    <!-- Etiqueta de audio con música romántica garantizada -->
+    <audio id="musicaFondo" loop preload="auto">
         <source src="https://soundhelix.com" type="audio/mp3">
     </audio>
 
@@ -310,7 +310,7 @@
         const garden = document.getElementById('garden');
         const totalFlowers = window.innerWidth < 600 ? 3 : 5;
 
-        // Crear las flores en la estructura
+        // Crear las flores
         for (let i = 0; i < totalFlowers; i++) {
             const flower = document.createElement('div');
             flower.classList.add('flower');
@@ -337,5 +337,5 @@
             garden.appendChild(flower);
         }
 
-        // Función que inicia toda la sorpresa
-        function startSurprise() {
+        // Función que inicia todo sin fallas de nombres
+        function arrancarSorpresa() {

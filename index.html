@@ -3,104 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Amarillas para Anny</title>
+    <title>Para el amor de mi vida: Anny</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(to bottom, #111, #2c1a04); min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; font-family: 'Arial', sans-serif; }
-        .welcome-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #111; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 1s ease; cursor: pointer; }
-        .main-heart { position: relative; width: 60px; height: 60px; background: #ff4081; transform: rotate(45deg); animation: pulse 1.5s infinite; filter: drop-shadow(0 0 15px #ff4081); margin-bottom: 30px; z-index: 10000; }
-        .main-heart::before, .main-heart::after { content: ''; position: absolute; width: 60px; height: 60px; background: #ff4081; border-radius: 50%; }
-        .main-heart::before { left: -30px; } .main-heart::after { top: -30px; }
-        .click-text { color: #ffd700; font-size: 1.6rem; font-weight: bold; margin-top: 15px; letter-spacing: 2px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); background: none; border: none; cursor: pointer; z-index: 10000; }
-        .welcome-screen p.sub-text { color: #aaa; margin-top: 25px; font-size: 1rem; letter-spacing: 3px; }
-        .message-container { position: absolute; top: 15%; text-align: center; z-index: 10; width: 90%; max-width: 600px; background: rgba(0, 0, 0, 0.4); padding: 25px; border-radius: 20px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 215, 0, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); opacity: 0; transform: translateY(-20px); }
-        .show-content { animation: fadeIn 2.5s ease forwards 1s; }
-        h1 { color: #ffd700; font-size: 2.2rem; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
-        p { color: #fff; font-size: 1.1rem; line-height: 1.6; margin-bottom: 10px; }
-        .highlight { color: #ffeb3b; font-weight: bold; }
-        .garden { position: relative; width: 100%; height: 60vh; display: flex; justify-content: space-around; align-items: flex-end; padding: 0 50px; }
-        .flower { position: relative; display: flex; flex-direction: column; align-items: center; transform-origin: bottom center; animation: sway 4s ease-in-out infinite alternate; }
-        .stem { width: 8px; height: 0; background: linear-gradient(to top, #2e7d32, #4caf50); border-radius: 4px; }
-        .grow-stem-anim { animation: growStem 3s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-        .leaf { position: absolute; width: 25px; height: 15px; background: #2e7d32; border-radius: 15px 0; opacity: 0; }
-        .leaf.left { left: -22px; transform: rotate(-30deg); } .leaf.right { right: -22px; transform: rotate(30deg); border-radius: 0 15px; }
-        .fade-in-anim { animation: fadeIn 1s ease forwards; }
-        .flower-head { position: absolute; width: 0; height: 0; opacity: 0; }
-        .bloom-anim { animation: bloom 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45px; height: 45px; background: #5d4037; border-radius: 50%; z-index: 5; box-shadow: inset 0 0 10px #3e2723; }
-        .petals { position: absolute; width: 100%; height: 100%; animation: rotatePetals 20s linear infinite; }
-        .petal { position: absolute; top: 50%; left: 50%; width: 25px; height: 70px; background: linear-gradient(to top, #ffca28, #ffeb3b); border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%; transform-origin: bottom center; box-shadow: 0 0 5px rgba(255, 235, 59, 0.3); }
-        .heart-particle { position: absolute; width: 20px; height: 20px; background: #ffeb3b; transform: rotate(45deg); pointer-events: none; animation: floatUp 5s linear infinite; opacity: 0; }
-        .heart-particle::before, .heart-particle::after { content: ''; position: absolute; width: 20px; height: 20px; background: #ffeb3b; border-radius: 50%; }
-        .heart-particle::before { left: -10px; } .heart-particle::after { top: -10px; }
-        @keyframes pulse { 0% { transform: scale(1) rotate(45deg); } 50% { transform: scale(1.15) rotate(45deg); } 100% { transform: scale(1) rotate(45deg); } }
-        @keyframes growStem { to { height: 280px; } }
-        @keyframes bloom { to { width: 120px; height: 120px; opacity: 1; top: -340px; } }
-        @keyframes rotatePetals { to { transform: rotate(360deg); } }
-        @keyframes sway { 0% { transform: rotate(-2deg); } 100% { transform: rotate(2deg); } }
-        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-        @keyframes floatUp { 0% { transform: translateY(100vh) rotate(45deg) scale(0); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.4; } 100% { transform: translateY(-10vh) rotate(45deg) scale(1.3); opacity: 0; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1b0d2b 0%, #08020f 70%, #000000 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+
+        /* Espacio estrellado */
+        .universe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        /* Mensaje de Amor Central Autómata */
+        .love-card {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 90%;
+            max-width: 550px;
+            background: rgba(15, 5, 25, 0.6);
+            padding: 40px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 30px rgba(142, 68, 173, 0.2);
+            animation: floatCard 4s ease-in-out infinite alternate;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .highlight {
+            color: #ffeb3b;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-shadow: 0 0 8px rgba(255, 235, 59, 0.5);
+        }
+
+        /* Flores Amarillas Voladoras */
+        .floating-flower {
+            position: absolute;
+            z-index: 2;
+            width: 80px;
+            height: 80px;
+            pointer-events: none;
+            animation: drift 12s linear infinite;
+        }
+
+        .flower-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            background: #5d4037;
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: inset 0 0 5px #3e2723;
+        }
+
+        .flower-petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: spin 15s linear infinite;
+        }
+
+        .petal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 45px;
+            background: linear-gradient(to top, #ffca28, #ffeb3b);
+            border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+            transform-origin: bottom center;
+        }
+
+        /* Animaciones del Espacio */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes floatCard {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(-15vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="welcome-screen" id="welcomeScreen" onclick="arrancarSorpresa()">
-        <div class="main-heart"></div>
-        <button class="click-text">PRESIONA AQUI</button>
-        <p class="sub-text">PARA ANNY</p>
+
+    <div class="universe" id="universe"></div>
+
+    <div class="love-card">
+        <h1>Para mi hermosa Anyeli ✨</h1>
+        <p>Eres el universo entero para mí, <span class="highlight">mi linda Anny</span>. No existen estrellas suficientes en el cielo para explicar todo lo que te amo.</p>
+        <p>Quiero que mires estas flores amarillas flotando en el espacio; así de infinito e inmenso es mi amor por ti. Te amo hoy y siempre. 🌻💛</p>
     </div>
-    <audio id="musicaFondo" loop preload="auto">
-        <source src="https://soundhelix.com" type="audio/mp3">
-    </audio>
-    <div class="message-container" id="messageContainer">
-        <h1>Para mi hermosa Anyeli</h1>
-        <p>Hoy es un día especial para recordarte lo mucho que iluminas mi vida. Eres mi persona favorita, <span class="highlight">mi linda Anny</span>.</p>
-        <p>Asi como estas flores amarillas crecen buscando el sol, mi amor por ti crece cada dia mas.</p>
-    </div>
-    <div class="garden" id="garden"></div>
+
     <script>
-        const garden = document.getElementById('garden');
-        const totalFlowers = window.innerWidth < 600 ? 3 : 5;
-        for (let i = 0; i < totalFlowers; i++) {
+        const universe = document.getElementById('universe');
+
+        // Generar 100 estrellas en el universo de fondo
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            universe.appendChild(star);
+        }
+
+        // Función para crear hermosas flores amarillas flotantes automáticas
+        function launchFlower() {
             const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.innerHTML += `
-                <div class="flower-head" id="head-${i}"><div class="center"></div><div class="petals"></div></div>
-                <div class="stem" id="stem-${i}"><div class="leaf left" id="leafL-${i}"></div><div class="leaf right" id="leafR-${i}"></div></div>
+            flower.classList.add('floating-flower');
+            
+            // Posición y tamaño aleatorio
+            flower.style.left = Math.random() * 90 + 'vw';
+            const size = Math.random() * 40 + 50; // Tamaños variados
+            flower.style.width = size + 'px';
+            flower.style.height = size + 'px';
+            flower.style.animationDuration = Math.random() * 6 + 10 + 's'; // Velocidades variadas
+
+            flower.innerHTML = `
+                <div class="flower-core" style="width: ${size*0.3}px; height: ${size*0.3}px;"></div>
+                <div class="flower-petals"></div>
             `;
-            const petalsContainer = flower.querySelector('.petals');
+
+            const petalsContainer = flower.querySelector('.flower-head || .flower-petals');
+            // Dibujar 12 pétalos amarillos alrededor del centro
             for (let j = 0; j < 12; j++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
+                petal.style.width = (size * 0.18) + 'px';
+                petal.style.height = (size * 0.5) + 'px';
                 petal.style.transform = `translate(-50%, -100%) rotate(${j * 30}deg)`;
                 petalsContainer.appendChild(petal);
             }
-            garden.appendChild(flower);
+
+            document.body.appendChild(flower);
+
+            // Eliminar la flor cuando termine de subir al cielo
+            setTimeout(() => {
+                flower.remove();
+            }, 16000);
         }
-        function arrancarSorpresa() {
-            document.getElementById('welcomeScreen').style.opacity = '0';
-            setTimeout(() => document.getElementById('welcomeScreen').style.display = 'none', 1000);
-            const music = document.getElementById('musicaFondo');
-            music.play().catch(error => console.log("Audio retenido:", error));
-            document.getElementById('messageContainer').classList.add('show-content');
-            for (let i = 0; i < totalFlowers; i++) {
-                const delay = i * 1.2;
-                setTimeout(() => { const stem = document.getElementById(`stem-${i}`); if(stem) stem.classList.add('grow-stem-anim'); }, delay * 1000);
-                setTimeout(() => { const leafL = document.getElementById(`leafL-${i}`); if(leafL) leafL.classList.add('fade-in-anim'); }, (delay + 1.5) * 1000);
-                setTimeout(() => { const leafR = document.getElementById(`leafR-${i}`); if(leafR) leafR.classList.add('fade-in-anim'); }, (delay + 1.8) * 1000);
-                setTimeout(() => { const head = document.getElementById(`head-${i}`); if(head) head.classList.add('bloom-anim'); }, (delay + 2.5) * 1000);
-            }
-            setInterval(crearCorazon, 400);
-        }
-        function crearCorazon() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart-particle');
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
-            const size = Math.random() * 10 + 10;
-            heart.style.width = size + 'px'; heart.style.height = size + 'px';
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
-        }
+
+        // Lanzar flores automáticamente cada poco tiempo de forma infinita
+        setInterval(launchFlower, 1200);
+        // Lanzar las primeras 3 de inmediato para que no empiece vacío
+        for(let k=0; k<3; k++) { setTimeout(launchFlower, k*300); }
     </script>
 </body>
 </html>
